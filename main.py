@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.status import entry_root
-from routes.publicacao import publicacoes_root
+from routes.artigo import artigos_root
 
 app = FastAPI()
 
@@ -20,10 +20,12 @@ app.add_middleware(
 )
 
 app.include_router(entry_root)
-app.include_router(publicacoes_root)
+app.include_router(artigos_root)
 
 
 # This is important for Vercel
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+#uvicorn main:app --host

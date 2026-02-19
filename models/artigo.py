@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class PublicacaoModel(BaseModel):
+class ArtigoModel(BaseModel):
     titulo:str
     autores:str
     ano:int
@@ -8,7 +8,7 @@ class PublicacaoModel(BaseModel):
     post_img:str
     tags : list
 
-class UpdatePublicacaoModel(BaseModel):
+class UpdateArtigoModel(BaseModel):
     titulo:str = None
     autores:str = None
     ano:int = None
