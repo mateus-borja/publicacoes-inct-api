@@ -9,7 +9,8 @@ app = FastAPI()
 # Configurar CORS
 allowed_origins = [
     "http://localhost:5173",                        # Vite desenvolvimento
-    "https://joaocruzs.github.io",       # GitHub Pages produção
+    "https://oncottgen.com",
+    "https://www.oncottgen.com"           # GitHub Pages produção
 ]
 
 app.add_middleware(
