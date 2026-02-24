@@ -10,7 +10,9 @@ app = FastAPI()
 allowed_origins = [
     "http://localhost:5173",                        # Vite desenvolvimento
     "https://oncottgen.com",
-    "https://www.oncottgen.com"           # GitHub Pages produção
+    "https://www.oncottgen.com,"
+    "https://joaocruzs.github.io",       # GitHub Pages produção
+           # GitHub Pages produção
 ]
 
 app.add_middleware(
