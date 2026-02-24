@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.status import entry_root
 from routes.artigo import artigos_root
+from routes.auth import auth_router
 
 app = FastAPI()
 
@@ -21,6 +22,7 @@ app.add_middleware(
 
 app.include_router(entry_root)
 app.include_router(artigos_root)
+app.include_router(auth_router)
 
 
 # This is important for Vercel

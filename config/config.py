@@ -14,6 +14,7 @@ uri = f"mongodb+srv://{user}:{password}@cluster0.0gy6lmh.mongodb.net/?appName=Cl
 client = MongoClient(uri, server_api=ServerApi('1'))
 db = client.publications
 publications_collection = db["publications"]
+users_collection = db["users"]
 
 # Send a ping to confirm a successful connection
 try:
