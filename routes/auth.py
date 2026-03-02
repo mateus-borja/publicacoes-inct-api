@@ -23,7 +23,7 @@ def register(user: UserModel):
         raise HTTPException(status_code=400, detail="Email já registrado")
     
     # Hash da senha
-    user_dict = dict(user)
+    user_dict = user.model_dump()
     user_dict["senha"] = hash_password(user.senha)
     
     # Inserir no MongoDB

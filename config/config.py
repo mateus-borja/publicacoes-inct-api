@@ -12,8 +12,8 @@ uri = f"mongodb+srv://{user}:{password}@cluster0.0gy6lmh.mongodb.net/?appName=Cl
 
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
-db = client.publications
-publications_collection = db["publications"]
+db = client.inct
+artigos_collection = db["artigos"]
 users_collection = db["users"]
 
 # Send a ping to confirm a successful connection
