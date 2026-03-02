@@ -5,7 +5,7 @@ import os
 
 SECRET_KEY = os.getenv("JWT_SECRET", "your-jwt-secret-key-change-in-production")
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
 def create_access_token(data: dict):
     to_encode = data.copy()
