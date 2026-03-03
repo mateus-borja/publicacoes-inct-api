@@ -24,3 +24,41 @@ def DecodeUser(user) -> dict:
 
 def DecodeUsers(users) -> list:
     return [DecodeUser(user) for user in users]
+
+def DecodeNoticia(noticia) -> dict:
+    return {
+        "id": str(noticia["_id"]),
+        "titulo": noticia["titulo"],
+        "resumo": noticia["resumo"],
+        "conteudo": noticia["conteudo"],
+        "imagem": noticia["imagem"],
+        "data": noticia["data"],
+        "laboratorio": noticia["laboratorio"],
+        "tags": noticia.get("tags", []),
+        "link": noticia["link"],
+        "publicado": noticia["publicado"],
+        "created_by": noticia.get("created_by", ""),
+        "created_by_name": noticia.get("created_by_name", "")
+    }
+
+def DecodeNoticias(noticias) -> list:
+    return [DecodeNoticia(noticia) for noticia in noticias]
+
+def DecodeEvento(evento) -> dict:
+    return {
+        "id": str(evento["_id"]),
+        "titulo": evento["titulo"],
+        "resumo": evento["resumo"],
+        "conteudo": evento["conteudo"],
+        "imagem": evento["imagem"],
+        "dataInicio": evento["dataInicio"],
+        "dataFim": evento["dataFim"],
+        "local": evento["local"],
+        "laboratorio": evento["laboratorio"],
+        "tags": evento.get("tags", []),
+        "created_by": evento.get("created_by", ""),
+        "created_by_name": evento.get("created_by_name", "")
+    }
+
+def DecodeEventos(eventos) -> list:
+    return [DecodeEvento(evento) for evento in eventos]

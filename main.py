@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes.status import entry_root
 from routes.artigo import artigos_root
 from routes.auth import auth_router
+from routes.noticia import noticias_root
+from routes.evento import eventos_root
 
 app = FastAPI()
 
@@ -26,6 +28,8 @@ app.add_middleware(
 app.include_router(entry_root)
 app.include_router(artigos_root)
 app.include_router(auth_router)
+app.include_router(noticias_root)
+app.include_router(eventos_root)
 
 
 # This is important for Vercel
