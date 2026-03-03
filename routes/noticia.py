@@ -11,6 +11,8 @@ noticias_root = APIRouter()
 @noticias_root.post("/noticias")
 def create_noticia(noticia: NoticiaModel, current_user: dict = Depends(get_current_user)):
     noticia = dict(noticia)
+    # Converter data para string
+    noticia["data"] = str(noticia["data"])
     current_date = datetime.date.today()
     noticia["created_at"] = str(current_date)
     noticia["created_by"] = current_user["id"]

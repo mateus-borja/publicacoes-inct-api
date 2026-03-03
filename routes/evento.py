@@ -11,6 +11,9 @@ eventos_root = APIRouter()
 @eventos_root.post("/eventos")
 def create_evento(evento: EventoModel, current_user: dict = Depends(get_current_user)):
     evento = dict(evento)
+    # Converter datas para string
+    evento["dataInicio"] = str(evento["dataInicio"])
+    evento["dataFim"] = str(evento["dataFim"])
     current_date = datetime.date.today()
     evento["created_at"] = str(current_date)
     evento["created_by"] = current_user["id"]
@@ -38,8 +41,8 @@ def get_eventos():
 # Pegando eventos futuros
 @eventos_root.get("/eventos/futuros")
 def get_eventos_futuros():
-    current_date = datetime.date.today()
-    res = eventos_collection.find({"dataInicio": {"$gte": current_date.isoformat()}})
+    current_date = str(datetime.date.today())
+    res = eventos_collection.find({"dataInicio": {"$gte": current_date}})
     decoded_data = DecodeEventos(res)
     return {
         "status": "OK",
