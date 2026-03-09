@@ -35,7 +35,6 @@ def DecodeNoticia(noticia) -> dict:
         "data": str(noticia["data"]),
         "laboratorio": noticia["laboratorio"],
         "tags": noticia.get("tags", []),
-        "link": noticia["link"],
         "publicado": noticia["publicado"],
         "created_by": noticia.get("created_by", ""),
         "created_by_name": noticia.get("created_by_name", "")
