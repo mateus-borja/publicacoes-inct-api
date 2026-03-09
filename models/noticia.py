@@ -9,7 +9,6 @@ class NoticiaModel(BaseModel):
     data: date
     laboratorio: str
     tags: list
-    link: str
     publicado: bool
 
 class UpdateNoticiaModel(BaseModel):
@@ -20,5 +19,4 @@ class UpdateNoticiaModel(BaseModel):
     data: date = None
     laboratorio: str = None
     tags: list = None
-    link: str = None
     publicado: bool = None
