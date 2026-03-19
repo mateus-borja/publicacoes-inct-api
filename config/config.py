@@ -17,6 +17,7 @@ artigos_collection = db["artigos"]
 users_collection = db["users"]
 noticias_collection = db["noticias"]
 eventos_collection = db["eventos"]
+cursos_collection = db["cursos"]
 
 # Send a ping to confirm a successful connection
 try:

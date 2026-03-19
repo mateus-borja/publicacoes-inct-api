@@ -61,3 +61,36 @@ def DecodeEvento(evento) -> dict:
 
 def DecodeEventos(eventos) -> list:
     return [DecodeEvento(evento) for evento in eventos]
+
+def DecodeConteudo(conteudo) -> dict:
+    return {
+        "tipo": conteudo["tipo"],
+        "url": conteudo.get("url"),
+        "questoes": conteudo.get("questoes"),
+    }
+
+def DecodeModulo(modulo) -> dict:
+    return {
+        "id": str(modulo["id"]),
+        "titulo": modulo["titulo"],
+        "ordem": modulo["ordem"],
+        "conteudos": [DecodeConteudo(c) for c in modulo.get("conteudos", [])],
+    }
+
+def DecodeCurso(curso) -> dict:
+    modulos_ordenados = sorted(curso.get("modulos", []), key=lambda m: m.get("ordem", 0))
+    return {
+        "id": str(curso["_id"]),
+        "titulo": curso["titulo"],
+        "descricao": curso["descricao"],
+        "imagem": curso["imagem"],
+        "tags": curso.get("tags", []),
+        "publicado": curso.get("publicado", False),
+        "modulos": [DecodeModulo(m) for m in modulos_ordenados],
+        "created_at": curso.get("created_at", ""),
+        "created_by": curso.get("created_by", ""),
+        "created_by_name": curso.get("created_by_name", ""),
+    }
+
+def DecodeCursos(cursos) -> list:
+    return [DecodeCurso(curso) for curso in cursos]

@@ -5,6 +5,7 @@ from routes.artigo import artigos_root
 from routes.auth import auth_router
 from routes.noticia import noticias_root
 from routes.evento import eventos_root
+from routes.curso import cursos_root
 
 app = FastAPI()
 
@@ -30,6 +31,7 @@ app.include_router(artigos_root)
 app.include_router(auth_router)
 app.include_router(noticias_root)
 app.include_router(eventos_root)
+app.include_router(cursos_root)
 
 
 # This is important for Vercel
